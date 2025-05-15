@@ -1,38 +1,324 @@
-.App {
+/* General */
+body {
+  margin: 0;
+  font-family: 'Comic Sans MS', cursive;
+  background: #fff0f5;
+  overflow-x: hidden;
+  color: #4a004a;
+  text-align: center;
+  position: relative;
+}
+
+/* Heartbeat */
+.heartbeat {
+  animation: beat 1s infinite;
+}
+
+@keyframes beat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Particle Background */
+#heartCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+/* Header */
+header {
+  padding: 20px;
+  background-color: #ea9fc9;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+header p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+/* Slider */
+
+.love-slider {
+  background: #fff0f5;
+  padding: 50px 20px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.love-slider h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #d63384;
+}
+
+.slider {
+  overflow: hidden;
+  position: relative;
+  height: 100px; /* Increased height to fit the slides properly */
+}
+
+.slide-track {
+  display: flex;
+  animation: scroll 60s linear infinite; /* Slowed down to 60s */
+}
+
+.slide {
+  background-color: #ffe6f0;
+  border-radius: 20px;
+  padding: 15px 30px;
+  margin: 0 15px;
+  font-size: 1.2rem;
+  color: #d6336c;
+  white-space: nowrap;
+  box-shadow: 0 5px 15px rgba(214, 51, 132, 0.1);
+  flex-shrink: 0;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Make sure enough width so it loops well */
+.slide-track {
+  width: calc(300px * 14); /* 14 slides to fit within the width */
+}
+
+
+/* Toggle Button */
+footer button {
+  margin-top: 20px;
+  padding: 10px;
+  background: hotpink;
+  color: white;
+  border: none;
+  border-radius: 12px;
+}
+/* Media Queries for Mobile Responsiveness */
+/* For small screens (mobile) */
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+
+  .heartbeat {
+    font-size: 1.5rem; /* Adjust text size */
+  }
+
+  .hug-section img {
+    max-width: 80%; /* Resize hug gif */
+    height: auto;
+  }
+
+  .slider {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .slide {
+    max-width: 90%;
+    margin: 10px 0;
+  }
+
+  .quotes-section p {
+    font-size: 1rem;
+  }
+
+  footer button {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+}
+
+/* For medium screens (tablets) */
+@media screen and (max-width: 1024px) {
+  body {
+    font-size: 16px;
+  }
+
+  .slider {
+    flex-direction: row;
+  }
+
+  .slide {
+    max-width: 60%;
+  }
+
+  .hug-section img {
+    max-width: 90%; /* Resize hug gif */
+  }
+}
+
+/* Heart Section */
+.hug-section {
+  margin: 20px 0;
+}
+
+.hug-section h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.hug-gif {
+  max-width: 250px;
+  height: 230px;
+  width: 230px;
+  margin: 10px;
+  border-radius: 15px;
+}
+
+.hug-gif1 {
+  max-width: 250px;
+  height: 170px;
+  width: 280px;
+  margin: 10px;
+  border-radius: 15px;
+}
+  
+/* Gifts Section */
+.gifts-section {
+  background-color: #ffcccb 0.1;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.gifts-section h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.gifts-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.gifts-section li {
+  font-size: 1.2rem;
+  margin: 5px 0;
+}
+
+/* Surprise Section */
+.surprise-section {
+  margin: 20px 0;
+  background-color: #ffcccb;
+  border-radius: 12px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-bottom: 10px;
+}
+.surprise-section2 {
+  margin: 20px 0;
+  background-color: #ffcccb;
+  border-radius: 12px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-bottom: 10px;
+}
+
+.button-ss{
+  border-radius: 7px;
+}
+.button-ss:hover{
+  background-color: #ff1493;
+}
+
+.surprise-section h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+#surprise-text {
+  display: none;
+  font-size: 1.5rem;
+  color: #ff1493;
+  margin-top: 10px;
+}
+#surprise-text2 {
+  display: none;
+  font-size: 1.5rem;
+  color: #ff1493;
+  margin-top: 10px;
+}
+
+#surprise-text.hidden {
+  display: none;
+}
+
+#surprise-text2.hidden2{
+  display: none;
+}
+
+#surprise-text {
+  display: block;
+}
+#surprise-text2{
+  display: block;
+}
+
+/* Footer */
+footer {
+  padding: 20px;
+  background-color: #ffb6c1;
+  font-size: 1rem;
+}
+
+/* Heart Canvas particles */
+#heartCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+.countdown-section {
+  background: #fff5f8;
+  padding: 50px 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.countdown-section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #d63384;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.countdown {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 30px;
 }
 
-.App-link {
-  color: #61dafb;
+.time {
+  background: #ffe6f0;
+  padding: 20px;
+  border-radius: 15px;
+  width: 100px;
+  box-shadow: 0 5px 10px rgba(214, 51, 132, 0.1);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.time span {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #d6336c;
+  display: block;
+}
+
+.time small {
+  font-size: 1rem;
+  color: #555;
 }
